@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>故 넷플연가 — 서울에서 보내는 이틀</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <style>
+    :root {
+      --text-primary: #000;
+      --text-secondary: #222;
+      --text-tertiary: #717171;
+      --text-muted: #777;
+      --bg-primary: #fff;
+      --bg-dark: #000;
+      --bg-surface: #f7f7f7;
+      --border-light: #f0f0f0;
+      --border-divider: #ddd;
+      --border-default: #dcdcdc;
+      --accent: #5E7EFE;
+      --urgent: #FF5B45;
+      --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.08);
+      --shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard Variable', Pretendard, -apple-system, system-ui, sans-serif;
+      color: var(--text-primary);
+      background: var(--bg-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    .container-wide { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    /* HERO */
+    .hero {
+      background: var(--bg-dark);
+      color: #fff;
+      text-align: center;
+      padding: 100px 24px 88px;
+    }
+    .hero .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      opacity: 0.55;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+    .hero h1 {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 12px;
+      line-height: 1.15;
+    }
+    .hero .subtitle {
+      font-size: 16px;
+      font-weight: 500;
+      opacity: 0.88;
+      margin-bottom: 36px;
+    }
+    .hero .date {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+      opacity: 0.95;
+    }
+    .hero .meta {
+      font-size: 12px;
+      opacity: 0.5;
+      margin-bottom: 36px;
+      letter-spacing: 0.02em;
+    }
+    .hero .preamble {
+      font-size: 13px;
+      line-height: 1.85;
+      opacity: 0.65;
+      margin-bottom: 22px;
+      font-weight: 400;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero .cta-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+
+    /* MAP */
+    .map-wrap {
+      margin-top: 36px;
+      background: var(--bg-surface);
+      border-radius: 12px;
+      padding: 28px 20px 20px;
+      border: 1px solid var(--border-light);
+    }
+    .map-wrap svg { display: block; width: 100%; height: auto; }
+    .map-legend {
+      display: flex; gap: 24px; justify-content: center;
+      margin-top: 16px; font-size: 11px; color: var(--text-secondary);
+    }
+    .map-legend span { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; }
+    .map-legend .dot-club { width: 8px; height: 8px; border-radius: 100px; background: #000; display: inline-block; }
+    .map-legend .dot-walk { width: 6px; height: 6px; border-radius: 100px; background: #B4B4B4; display: inline-block; }
+
+    .post-map-body { margin-top: 28px; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 22px; border-radius: 8px; border: none;
+      font-family: inherit; font-size: 13px; font-weight: 600;
+      cursor: pointer; text-decoration: none; transition: all 0.15s ease-out;
+      gap: 6px;
+    }
+    .btn-primary { background: #fff; color: #000; }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,255,255,0.15); }
+    .btn-outline-light { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.35); }
+    .btn-outline-light:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.55); }
+    .btn-dark { background: #000; color: #fff; }
+    .btn-dark:hover { background: #1a1a1a; transform: translateY(-1px); }
+    .btn-outline { background: #fff; color: #000; border: 1px solid var(--border-default); }
+    .btn-outline:hover { background: var(--bg-surface); border-color: #000; }
+
+    /* SECTIONS */
+    section.story { padding: 72px 0; border-bottom: 1px solid var(--border-light); }
+    .section-number {
+      font-size: 11px; color: var(--text-tertiary);
+      letter-spacing: 0.15em; margin-bottom: 12px; font-weight: 600;
+    }
+    .section-title {
+      font-size: 22px; font-weight: 700; letter-spacing: -0.02em;
+      margin-bottom: 20px; line-height: 1.4;
+    }
+    .section-body { font-size: 15px; color: var(--text-secondary); line-height: 1.75; }
+    .section-body p + p { margin-top: 14px; }
+    .section-body strong { font-weight: 700; color: #000; }
+
+    .placeholder-image {
+      background: var(--bg-surface);
+      border-radius: 12px;
+      aspect-ratio: 16 / 9;
+      margin-top: 32px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-tertiary); font-size: 12px;
+      border: 1px dashed var(--border-divider);
+    }
+
+    /* Venue image (dark atmospheric) for night section */
+    .venue-image {
+      margin-top: 32px;
+      margin-bottom: 36px;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      position: relative;
+      background:
+        radial-gradient(ellipse at center top, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 50%),
+        radial-gradient(ellipse at center, #2a2a2a 0%, #0e0e0e 80%);
+    }
+    .venue-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 22% 65%, rgba(255, 200, 100, 0.15) 0%, transparent 12%),
+        radial-gradient(circle at 78% 60%, rgba(255, 200, 100, 0.12) 0%, transparent 12%),
+        radial-gradient(circle at 50% 35%, rgba(255, 200, 100, 0.18) 0%, transparent 14%);
+      pointer-events: none;
+    }
+    .venue-image-inner {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 6px;
+      z-index: 1;
+    }
+    .venue-emoji {
+      font-size: 38px;
+      filter: drop-shadow(0 0 12px rgba(255,200,100,0.3));
+      margin-bottom: 4px;
+    }
+    .venue-label {
+      font-size: 13px; font-weight: 600;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.02em;
+    }
+    .venue-sub {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.04em;
+    }
+
+    /* Day card variants (ceremony / party) */
+    .day-card-ceremony {
+      background: #FAFAF8;
+      border-color: rgba(0,0,0,0.06);
+    }
+    .day-card-party {
+      background: #0E0E0E;
+      border-color: rgba(255,255,255,0.08);
+    }
+    .day-card-party .day-label,
+    .day-card-party .day-title,
+    .day-card-party .day-keywords,
+    .day-card-party .day-flow { color: #fff; }
+    .day-card-party .day-label { color: rgba(255,255,255,0.5); }
+    .day-card-party .day-keywords { color: rgba(255,255,255,0.55); }
+    .day-card-party .day-flow { color: rgba(255,255,255,0.85); }
+    .day-card-party:hover { border-color: rgba(255,255,255,0.25); }
+
+    /* DAY GRID */
+    .day-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 32px;
+    }
+    .day-card {
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 24px 22px;
+      transition: all 0.15s;
+    }
+    .day-card:hover { border-color: #000; }
+    .day-card .day-label { font-size: 11px; color: var(--text-tertiary); margin-bottom: 6px; font-weight: 600; letter-spacing: 0.05em; }
+    .day-card .day-title { font-size: 17px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.015em; }
+    .day-card .day-keywords {
+      font-size: 12px; color: var(--text-tertiary); margin-bottom: 16px;
+      letter-spacing: 0.04em; font-weight: 500;
+    }
+    .day-card .day-flow { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+
+    /* PARTICIPATION */
+    .part-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 32px; }
+    .part-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 20px 18px;
+      transition: all 0.15s;
+    }
+    .part-card:hover { background: #fff; border-color: #000; }
+    .part-card .emoji { font-size: 22px; margin-bottom: 10px; display: block; }
+    .part-card .name { font-size: 15px; font-weight: 700; margin-bottom: 3px; letter-spacing: -0.01em; }
+    .part-card .desc { font-size: 12px; color: var(--text-tertiary); margin-bottom: 10px; }
+    .part-card .config { font-size: 12px; color: var(--text-secondary); font-weight: 600; }
+
+    /* LINEUP */
+    .lineup-section { padding: 72px 0; border-bottom: 1px solid var(--border-light); }
+    .lineup-header {
+      margin-bottom: 24px;
+    }
+    .lineup-header h2 {
+      font-size: 22px; font-weight: 700; letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .lineup-header .count {
+      color: var(--text-tertiary); font-size: 12px;
+    }
+    .lineup-header .count strong { color: #000; font-weight: 700; }
+
+    .filter-chips { display: flex; gap: 6px; margin-bottom: 32px; flex-wrap: wrap; }
+    .chip {
+      padding: 7px 14px; border-radius: 100px; font-size: 12px; font-weight: 500;
+      background: #fff; border: 1px solid var(--border-divider); cursor: pointer;
+      color: var(--text-secondary); transition: all 0.12s; font-family: inherit;
+    }
+    .chip:hover { background: var(--bg-surface); }
+    .chip.active { background: #000; color: #fff; border-color: #000; }
+
+    .lineup-block { margin-bottom: 48px; }
+    .lineup-block:last-child { margin-bottom: 0; }
+    .block-header {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 20px; flex-wrap: wrap; gap: 8px;
+    }
+    .block-header h3 {
+      font-size: 17px; font-weight: 700;
+      display: flex; align-items: baseline; gap: 8px;
+      letter-spacing: -0.015em;
+    }
+    .block-header h3 .count-badge {
+      color: var(--text-tertiary); font-size: 13px; font-weight: 500;
+    }
+    .block-header .desc { font-size: 12px; color: var(--text-tertiary); }
+
+    .card-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    }
+
+    /* ============ CLUB CARD (크리에이터 중심) ============ */
+    .club-card {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.18s ease-out;
+      display: flex; flex-direction: column;
+      cursor: pointer;
+    }
+    .club-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+    .urgency-badge {
+      position: absolute; top: 10px; left: 10px; z-index: 2;
+      padding: 5px 9px;
+      background: #FF3A3A; color: #fff;
+      font-size: 11px; font-weight: 700;
+      border-radius: 4px;
+      letter-spacing: -0.01em;
+    }
+    .heart-icon {
+      position: absolute; top: 8px; right: 8px; z-index: 2;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(0,0,0,0.3);
+      font-size: 26px; line-height: 1;
+      background: transparent; border: none; cursor: pointer;
+      transition: all 0.15s;
+    }
+    .heart-icon:hover { color: #FF3A3A; transform: scale(1.08); }
+    .club-thumb {
+      aspect-ratio: 1/1;
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .club-thumb .with-mark {
+      position: absolute; top: 14px; left: 16px;
+      font-family: 'Pretendard Variable', 'Georgia', serif;
+      font-size: 22px; font-weight: 900; line-height: 1;
+      color: rgba(0,0,0,0.45);
+      font-style: italic;
+      letter-spacing: -0.04em;
+      transform: skew(-6deg);
+    }
+    .creator-avatar {
+      width: 56%; aspect-ratio: 1/1;
+      border-radius: 100%;
+      background: rgba(255,255,255,0.55);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px; font-weight: 700;
+      border: 3px solid rgba(255,255,255,0.8);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    }
+    /* Warm neutral BG variations (funeral-tone) */
+    .club-bg-1 { background: #EFEBE7; } /* off-white */
+    .club-bg-2 { background: #E5E1DB; } /* warm light gray */
+    .club-bg-3 { background: #D9D3CA; } /* taupe */
+    .club-bg-4 { background: #DEDCD7; } /* cool stone */
+    .club-bg-5 { background: #E2DDD5; } /* cream */
+    .club-bg-6 { background: #CECABF; } /* mocha gray */
+    .club-bg-1 .creator-avatar { color: #6E5F4B; }
+    .club-bg-2 .creator-avatar { color: #6B6155; }
+    .club-bg-3 .creator-avatar { color: #594E3D; }
+    .club-bg-4 .creator-avatar { color: #5E5B53; }
+    .club-bg-5 .creator-avatar { color: #6B5F49; }
+    .club-bg-6 .creator-avatar { color: #514637; }
+
+    /* Creator banner (full-width strip between thumb & body) */
+    .creator-banner {
+      display: flex; align-items: center; gap: 9px;
+      padding: 10px 14px;
+      background: #F0EDE8;
+      border-top: 1px solid rgba(0,0,0,0.04);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .banner-avatar-mark {
+      width: 22px; height: 22px; border-radius: 100px;
+      background: #fff;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 11px; color: var(--text-tertiary);
+      flex-shrink: 0;
+      border: 1px solid #E5E0D9;
+    }
+    .banner-content {
+      display: flex; flex-direction: column; gap: 1px;
+      min-width: 0; flex: 1;
+    }
+    .banner-name {
+      font-size: 12px; font-weight: 700;
+      color: #000;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .banner-role {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      line-height: 1.3;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .club-body { padding: 14px; flex: 1; display: flex; flex-direction: column; }
+    .club-card .card-title {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.45;
+      color: #000;
+      letter-spacing: -0.015em;
+      margin-bottom: 12px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 41px;
+    }
+    .club-footer {
+      margin-top: auto;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      line-height: 1.5;
+    }
+    .host-row {
+      display: flex; align-items: center; gap: 5px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-bottom: 3px;
+      font-size: 11px;
+    }
+    .host-row .host-mark {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 14px; height: 14px; border-radius: 100px;
+      background: #5E7EFE; color: #fff;
+      font-size: 8px; line-height: 1;
+    }
+    .club-footer .date-line {
+      font-weight: 500;
+      color: var(--text-tertiary);
+    }
+
+    /* ============ WALK CARD (제안자·풍경 중심) ============ */
+    .walk-card {
+      background: transparent;
+      border-radius: 12px;
+      transition: all 0.18s ease-out;
+      display: flex; flex-direction: column;
+      cursor: pointer;
+      border: none;
+    }
+    .walk-card:hover { transform: translateY(-3px); }
+    .walk-thumb {
+      aspect-ratio: 4/3;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 72px;
+    }
+    .walk-thumb::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.45) 100%);
+      pointer-events: none;
+    }
+    .walk-thumb > * { position: relative; z-index: 1; }
+    .walk-thumb .date-badge {
+      position: absolute; top: 10px; left: 10px;
+      padding: 5px 11px;
+      background: rgba(0,0,0,0.75);
+      color: #fff;
+      font-size: 12px; font-weight: 700;
+      border-radius: 100px;
+      letter-spacing: -0.01em;
+    }
+    .walk-thumb .date-badge .dow {
+      opacity: 0.7;
+      font-weight: 500;
+      margin-left: 3px;
+    }
+    .walk-thumb .urgency-walk {
+      position: absolute; bottom: 10px; right: 10px;
+      padding: 4px 10px;
+      background: #FF3A3A;
+      color: #fff;
+      font-size: 11px; font-weight: 600;
+      border-radius: 100px;
+      display: inline-flex; align-items: center; gap: 3px;
+    }
+    .walk-body { padding: 10px 2px 0; flex: 1; display: flex; flex-direction: column; }
+
+    /* Proposer chip with laurel wreath decoration (per Image 5) */
+    .proposer-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-bottom: 8px;
+      align-self: flex-start;
+    }
+    .laurel {
+      width: 14px; height: 18px;
+      display: inline-block;
+      opacity: 0.55;
+      flex-shrink: 0;
+    }
+    .laurel.right { transform: scaleX(-1); }
+    .proposer-chip .pavatar {
+      width: 18px; height: 18px;
+      border-radius: 100px;
+      background: var(--bg-surface);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 9px; font-weight: 700;
+      color: var(--text-tertiary);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .proposer-chip .pname {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .walk-card .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: #000;
+      letter-spacing: -0.015em;
+      margin-bottom: 4px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .walk-card .meta-bottom {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    /* Dark monochrome scenes (funeral tone) */
+    .walk-scene-1 { background: linear-gradient(135deg, #2A2520 0%, #4A4035 100%); }
+    .walk-scene-2 { background: linear-gradient(135deg, #2A2A2A 0%, #4D4D4D 100%); }
+    .walk-scene-3 { background: linear-gradient(135deg, #252E2A 0%, #45554D 100%); }
+    .walk-scene-4 { background: linear-gradient(135deg, #25282E 0%, #444A55 100%); }
+    .walk-scene-5 { background: linear-gradient(135deg, #2D2823 0%, #524539 100%); }
+    .walk-scene-6 { background: linear-gradient(135deg, #282A35 0%, #484C5A 100%); }
+
+    .load-more-row { display: flex; justify-content: center; margin-top: 24px; }
+    .load-more {
+      padding: 12px 26px; background: #fff; border: 1px solid #000;
+      border-radius: 8px; cursor: pointer; font-family: inherit;
+      font-size: 13px; font-weight: 600; color: #000; transition: all 0.12s;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .load-more:hover { background: #000; color: #fff; }
+    .load-more .remaining { opacity: 0.6; font-weight: 500; }
+    .load-more:hover .remaining { opacity: 0.7; }
+
+    .hidden { display: none !important; }
+
+    /* NIGHT */
+    .night-section { padding: 96px 0; border-bottom: 1px solid var(--border-light); }
+    .night-card {
+      background: var(--bg-dark); color: #fff;
+      border-radius: 20px; padding: 48px 40px;
+      margin-top: 32px;
+      position: relative; overflow: hidden;
+      text-align: center;
+    }
+    .night-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 280px; height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(245,232,200,0.45) 50%, transparent 100%);
+    }
+    .night-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 20px; opacity: 0.7; letter-spacing: 0.02em; }
+    .night-card p { font-size: 16px; line-height: 1.8; opacity: 0.9; margin-bottom: 36px; }
+    .night-card .btn-primary {
+      background: #F5E8C8;
+      color: #1a1a1a;
+      padding: 18px 36px;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 10px;
+      letter-spacing: -0.01em;
+      min-width: 280px;
+      box-shadow: 0 0 32px rgba(245,232,200,0.15);
+      transition: all 0.2s ease-out;
+    }
+    .night-card .btn-primary::after {
+      content: '→';
+      margin-left: 8px;
+      transition: transform 0.18s;
+    }
+    .night-card .btn-primary:hover {
+      background: #FFF4D6;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 32px rgba(245,232,200,0.4);
+    }
+    .night-card .btn-primary:hover::after { transform: translateX(4px); }
+
+    /* FINAL */
+    .final { text-align: center; padding: 120px 24px; }
+    .final blockquote {
+      font-size: 24px; font-weight: 600; line-height: 1.6;
+      margin-bottom: 28px; letter-spacing: -0.015em;
+    }
+    .final blockquote em { font-style: normal; color: var(--text-tertiary); font-weight: 500; }
+    .final .closing { color: var(--text-tertiary); font-size: 16px; margin-bottom: 44px; line-height: 1.7; }
+    .final-cta { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+
+    /* STICKY BAR */
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: #fff; border-top: 1px solid #000;
+      padding: 12px 24px;
+      display: flex; gap: 16px; justify-content: space-between; align-items: center;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.04);
+      z-index: 100;
+    }
+    .sticky-bar .info { font-size: 13px; color: var(--text-tertiary); line-height: 1.4; }
+    .sticky-bar .info strong { color: #000; font-weight: 700; }
+    .sticky-bar .info .date { font-size: 11px; opacity: 0.7; }
+
+    footer {
+      padding: 60px 24px;
+      text-align: center; color: var(--text-tertiary); font-size: 12px;
+      background: var(--bg-surface);
+    }
+
+    @media (max-width: 880px) {
+      .day-grid { grid-template-columns: 1fr; }
+      .part-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero h1 { font-size: 48px; }
+      .section-title { font-size: 26px; }
+      .lineup-header h2 { font-size: 26px; }
+      .final blockquote { font-size: 20px; }
+    }
+    @media (max-width: 560px) {
+      .hero { padding: 100px 24px 80px; }
+      .hero h1 { font-size: 40px; }
+      section.story, .lineup-section, .night-section { padding: 64px 0; }
+      .night-card { padding: 36px 24px; }
+      .sticky-bar .info .date { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">FAREWELL FESTIVAL</div>
+    <p class="preamble">5년의 기억과 인연을 품은<br/>커뮤니티 브랜드의 마지막 축제에 초대합니다</p>
+    <h1>故 넷플연가</h1>
+    <div class="date">2026. 06. 20 — 06. 21</div>
+    <div class="subtitle">마지막 만남과 새로운 시작의 48시간</div>
+    <div class="meta">서울 전역에서 펼쳐지는 100개의 동행,<br/>그리고 모두가 함께 완성하는 밤의 장례식</div>
+    <div class="cta-row">
+      <a href="#lineup" class="btn btn-primary">동행 라인업🔅</a>
+      <a href="#notify" class="btn btn-outline-light">장례식 참여🌙</a>
+    </div>
+  </section>
+
+  <!-- STORY 1 -->
+  <section class="story">
+    <div class="container">
+      <div class="section-number">01</div>
+      <h2 class="section-title">넷플연가 이름을 보내려 합니다.</h2>
+      <div class="section-body">
+        <p>연희동에서 시작한 한 동네 모임이, 어느새 매년 1–2천 명의 크리에이터와 수만 명의 친구들이 오가는 도시의 약속이 되었습니다.</p>
+        <p>넷플연가는 지난 5년의 모든 대화와 친구들의 연결과 기억이 쌓여 의미가 생긴 이름이라고 생각합니다.</p>
+        <p>이제 한 챕터를 닫으려 합니다. 더 많은 사람과, 더 멀리 가기 위해서요.</p>
+      </div>
+      <div class="placeholder-image">📷 연희동 초기 모임 사진</div>
+    </div>
+  </section>
+
+  <!-- STORY 2 -->
+  <section class="story">
+    <div class="container">
+      <div class="section-number">02</div>
+      <h2 class="section-title">가장 커뮤니티스러운 장례식은?</h2>
+      <div class="section-body">
+        <p>처음에는 한 공간에 모여 추모하고, 새 이름을 공개하는 익숙한 방식을 떠올렸습니다.</p>
+        <p>하지만 넷플연가는 그렇게 보내기 어려운 이름이었습니다. 이 이름은 한 장소가 아니라 서울의 카페, 거실, 책방, 골목처럼 도시 곳곳에서 다양한 사람들과 함께 만들어졌기 때문입니다.</p>
+      </div>
+      <div class="placeholder-image">📷 넷플연가, 동행의 모습</div>
+      <div class="section-body" style="margin-top: 32px;">
+        <p>그래서 이번 장례식은 한자리에서 끝나지 않습니다. 현재진행형인 저희의 현재와 꿈을 담았습니다. 넷플연가는 '누군가의 지식과 경험이 커뮤니티로 연결되는 세상에서 가장 큰 학교' 가 되고 싶고, 에어비앤비가 호텔 하나 없이 세계 최대 숙박 플랫폼이 되었듯 동행은 공간 하나 없이 세계 최대의 게스트하우스가 되는 일이 목표입니다.</p>
+        <p>거창해보일 수 있지만, 이미 매주 몇백개의 새로운 만남과 배움, 연결과 사랑이 새롭게 넷플연가와 동행에서 시작되고 있습니다. 다른 도시에선 다를까요?</p>
+        <p>낮에는 서울 전역에서 동행과 만남이 이어지고, 밤에는 모두가 함께 모여 마지막 의식을 나눕니다.</p>
+        <p>넷플연가의 마지막은, 도시 전체에서 열립니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY 3 -->
+  <section class="story">
+    <div class="container">
+      <div class="section-number">03</div>
+      <h2 class="section-title">서울 전역, 도시 전체가 축제!</h2>
+      <div class="section-body">
+        <p>이틀 동안 서울 전역에서 <strong>동행 50개</strong>, <strong>동행 클럽 40개</strong>가 동시에 열립니다. 지금도 넷플연가와 동행은 매주 서울에서 몇백개가 열리고 있어요. 저희가 꿈꿔왔던 풍경을 일상으로 만들고 있는 이야기를 그대로 보여드리고 같이 경험하면서 넷플연가의 지난 시간과 앞으로의 꿈을 기억해주셨으면 좋겠어요.</p>
+      </div>
+
+      <div class="map-wrap">
+        <svg viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg" aria-label="서울 동행 위치 지도">
+          <!-- Seoul soft outline -->
+          <path d="M 90 200 Q 110 130 210 110 Q 320 92 450 105 Q 580 115 660 145 Q 720 180 720 240 Q 720 320 640 350 Q 530 380 410 372 Q 280 372 180 350 Q 95 320 85 260 Z"
+                fill="#fff" stroke="#E0E0E0" stroke-width="1.5"/>
+          <!-- Han River -->
+          <path d="M 60 270 Q 200 248 350 275 Q 500 298 650 270 Q 720 258 750 280"
+                fill="none" stroke="#D8E2EC" stroke-width="16" stroke-linecap="round" opacity="0.85"/>
+
+          <!-- District labels -->
+          <text x="160" y="195" font-family="Pretendard Variable, sans-serif" font-size="11" fill="#999" font-weight="500">서대문</text>
+          <text x="255" y="170" font-family="Pretendard Variable, sans-serif" font-size="11" fill="#999" font-weight="500">홍대</text>
+          <text x="350" y="155" font-family="Pretendard Variable, sans-serif" font-size="11" fill="#999" font-weight="500">종로</text>
+          <text x="440" y="172" font-family="Pretendard Variable, sans-serif" font-size="11" fill="#999" font-weight="500">을지로</text>
+          <text x="510" y="196" font-family="Pretendard Variable, sans-serif" font-size="11" fill="#999" font-weight="500">신당</text>
+          <text x="595" y="190" font-family="Pretendard Variable, sans-serif" font-size="11" fill="#999" font-weight="500">성수</text>
+          <text x="230" y="340" font-family="Pretendard Variable, sans-serif" font-size="11" fill="#bbb" font-weight="500" font-style="italic">한강</text>
+          <text x="450" y="365" font-family="Pretendard Variable, sans-serif" font-size="11" fill="#999" font-weight="500">강남</text>
+
+          <!-- 동행 클럽 dots: 16 large black -->
+          <circle cx="175" cy="215" r="5" fill="#000"/>
+          <circle cx="240" cy="200" r="5" fill="#000"/>
+          <circle cx="285" cy="188" r="5" fill="#000"/>
+          <circle cx="335" cy="172" r="5" fill="#000"/>
+          <circle cx="395" cy="195" r="5" fill="#000"/>
+          <circle cx="450" cy="188" r="5" fill="#000"/>
+          <circle cx="500" cy="212" r="5" fill="#000"/>
+          <circle cx="555" cy="200" r="5" fill="#000"/>
+          <circle cx="615" cy="208" r="5" fill="#000"/>
+          <circle cx="265" cy="240" r="5" fill="#000"/>
+          <circle cx="370" cy="228" r="5" fill="#000"/>
+          <circle cx="470" cy="240" r="5" fill="#000"/>
+          <circle cx="205" cy="325" r="5" fill="#000"/>
+          <circle cx="320" cy="340" r="5" fill="#000"/>
+          <circle cx="485" cy="340" r="5" fill="#000"/>
+          <circle cx="600" cy="325" r="5" fill="#000"/>
+
+          <!-- 동행 dots: 26 small gray -->
+          <circle cx="150" cy="240" r="3" fill="#B4B4B4"/>
+          <circle cx="200" cy="178" r="3" fill="#B4B4B4"/>
+          <circle cx="220" cy="232" r="3" fill="#B4B4B4"/>
+          <circle cx="262" cy="168" r="3" fill="#B4B4B4"/>
+          <circle cx="305" cy="220" r="3" fill="#B4B4B4"/>
+          <circle cx="345" cy="205" r="3" fill="#B4B4B4"/>
+          <circle cx="360" cy="148" r="3" fill="#B4B4B4"/>
+          <circle cx="410" cy="160" r="3" fill="#B4B4B4"/>
+          <circle cx="425" cy="225" r="3" fill="#B4B4B4"/>
+          <circle cx="470" cy="172" r="3" fill="#B4B4B4"/>
+          <circle cx="515" cy="180" r="3" fill="#B4B4B4"/>
+          <circle cx="540" cy="228" r="3" fill="#B4B4B4"/>
+          <circle cx="580" cy="172" r="3" fill="#B4B4B4"/>
+          <circle cx="635" cy="200" r="3" fill="#B4B4B4"/>
+          <circle cx="660" cy="240" r="3" fill="#B4B4B4"/>
+          <circle cx="170" cy="305" r="3" fill="#B4B4B4"/>
+          <circle cx="245" cy="320" r="3" fill="#B4B4B4"/>
+          <circle cx="275" cy="350" r="3" fill="#B4B4B4"/>
+          <circle cx="355" cy="320" r="3" fill="#B4B4B4"/>
+          <circle cx="385" cy="355" r="3" fill="#B4B4B4"/>
+          <circle cx="425" cy="335" r="3" fill="#B4B4B4"/>
+          <circle cx="455" cy="358" r="3" fill="#B4B4B4"/>
+          <circle cx="525" cy="350" r="3" fill="#B4B4B4"/>
+          <circle cx="555" cy="320" r="3" fill="#B4B4B4"/>
+          <circle cx="635" cy="345" r="3" fill="#B4B4B4"/>
+          <circle cx="665" cy="305" r="3" fill="#B4B4B4"/>
+        </svg>
+        <div class="map-legend">
+          <span><i class="dot-club"></i> 동행 클럽 40</span>
+          <span><i class="dot-walk"></i> 동행 50</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LINEUP -->
+  <section class="lineup-section" id="lineup">
+    <div class="container-wide">
+      <div class="section-number">04</div>
+      <div class="lineup-header">
+        <h2>낮 — 동행 축제</h2>
+        <div class="count"><strong>동행 클럽 40</strong> · <strong>동행 50</strong> · 매일 업데이트됩니다</div>
+      </div>
+
+      <div class="filter-chips">
+        <button class="chip active">전체</button>
+        <button class="chip">Day 1 · 6/20</button>
+        <button class="chip">Day 2 · 6/21</button>
+        <button class="chip">10:30</button>
+        <button class="chip">13:00</button>
+        <button class="chip">15:30</button>
+      </div>
+
+      <!-- 동행 클럽 -->
+      <div class="lineup-block">
+        <div class="block-header">
+          <h3>동행 클럽 <span class="count-badge">40개</span></h3>
+          <div class="desc">거점 공간에서 진행되는 클럽형 프로그램 / 호스트 중심</div>
+        </div>
+        <div class="card-grid" id="club-grid"></div>
+        <div class="load-more-row">
+          <button class="load-more" data-target="club" data-total="40">
+            동행 클럽 더보기 <span class="remaining">(51개)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 동행 -->
+      <div class="lineup-block">
+        <div class="block-header">
+          <h3>동행 <span class="count-badge">50개</span></h3>
+          <div class="desc">서울 전역 5–6인 소규모 모임 · 제안자 중심</div>
+        </div>
+        <div class="card-grid" id="walk-grid"></div>
+        <div class="load-more-row">
+          <button class="load-more" data-target="walk" data-total="50">
+            동행 더보기 <span class="remaining">(44개)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NIGHT -->
+  <section class="night-section">
+    <div class="container">
+      <div class="section-number">05</div>
+      <h2 class="section-title">밤 — 故 넷플연가의 장례식,<br/>그리고 동행의 첫 파티</h2>
+      <div class="section-body">
+        <p>저녁 6시 30분, 검은 초대장이 도착합니다. 입구에서 손목에 작은 팔찌를 받고, 故 넷플연가에 남길 한 줄을 씁니다.</p>
+        <p>낮 동안 서울 곳곳에서 만난 사람들이 한 자리에 모여, 8년의 시간을 함께 돌아봅니다. 누군가는 처음 만난 친구의 후기를 듣고, 누군가는 육개장을 나눕니다.</p>
+        <p>이름을 잘 보내는 자리이자, 새 이름을 처음 만나는 자리. 끝과 시작이 한 자리에서 일어납니다.</p>
+      </div>
+
+      <!-- Venue photo -->
+      <div class="venue-image">
+        <div class="venue-image-inner">
+          <span class="venue-emoji">🕯</span>
+          <span class="venue-label">장례식장 공간 사진</span>
+          <span class="venue-sub">신당 사생활 · 스푼하우스 을지로</span>
+        </div>
+      </div>
+
+      <div class="day-grid">
+        <div class="day-card day-card-ceremony">
+          <div class="day-label">DAY 1 · 6월 20일 (금) · 신당 사생활</div>
+          <div class="day-title">🕯 故 넷플연가의 장례식</div>
+          <div class="day-keywords">정리 · 감정 · 마지막</div>
+          <div class="day-flow">
+            18:30 · 검은 초대장 입장 + 마지막 한 줄 쓰기<br/>
+            19:00 · 회고 강연 — 8년의 풍경<br/>
+            20:00 · 육개장과 4–5인 테이블 대화<br/>
+            21:00 · 차분한 네트워킹
+          </div>
+        </div>
+        <div class="day-card day-card-party">
+          <div class="day-label">DAY 2 · 6월 21일 (토) · 스푼하우스 을지로</div>
+          <div class="day-title">🎉 동행의 첫 파티</div>
+          <div class="day-keywords">시작 · 에너지 · 확장</div>
+          <div class="day-flow">
+            18:30 · 입장 + 새 이름 발표 준비<br/>
+            19:00 · 선언 강연 — 동행, 이렇게 합니다<br/>
+            20:00 · 새 이름 공개 + 톤 전환<br/>
+            21:00 · 네트워킹 파티 — 음악과 새 친구
+          </div>
+        </div>
+      </div>
+
+      <div class="night-card">
+        <h3>이틀 모두 · 18:30 입장 · 19:00 강연 · 22:00 마침</h3>
+        <p>두 자리는 한 사람의 장례식이자, 새 이름의 첫 인사입니다. Day 1에서 차분히 보내드리고, Day 2에서 새로 만납니다. 한 자리만 와도 좋고, 두 자리 모두 함께해도 좋습니다.</p>
+        <a href="#notify" class="btn btn-primary">장례식 참여하기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTICIPATION (moved below night) -->
+  <section class="story">
+    <div class="container">
+      <div class="section-number">06</div>
+      <h2 class="section-title">당신의 하루를 골라주세요</h2>
+      <div class="section-body">
+        <p>한 가지 방식으로만 참여할 필요는 없습니다. 마음에 드는 만큼 함께해주세요.</p>
+      </div>
+      <div class="part-grid">
+        <div class="part-card">
+          <span class="emoji">🍵</span>
+          <div class="name">라이트</div>
+          <div class="desc">가볍게 한 자리만</div>
+          <div class="config">동행 1개</div>
+        </div>
+        <div class="part-card">
+          <span class="emoji">☀️</span>
+          <div class="name">데이</div>
+          <div class="desc">낮의 서울 통째로</div>
+          <div class="config">동행 + 클럽 1개</div>
+        </div>
+        <div class="part-card">
+          <span class="emoji">🌙</span>
+          <div class="name">밤</div>
+          <div class="desc">의식의 자리만</div>
+          <div class="config">장례식 1일</div>
+        </div>
+        <div class="part-card">
+          <span class="emoji">🌗</span>
+          <div class="name">풀</div>
+          <div class="desc">이틀을 통째로</div>
+          <div class="config">낮 + 장례식</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final" id="notify">
+    <div class="container">
+      <div class="section-number">07</div>
+      <blockquote>
+        이름은 바뀌어도, 방향은 그대로입니다.<br>
+        <em>"혼자 소비하던 시간을, 함께 나누는 경험으로 바꾸자."</em>
+      </blockquote>
+      <p class="closing">이틀이 그 약속을 다시 한번 확인하는 자리였으면 합니다.<br>8년간 이 이름을 함께 만들어주신 분들에게는 잘 보내는 인사를, 처음 오시는 분들에게는 가장 강렬한 첫 만남을 드리고 싶습니다.</p>
+      <div class="final-cta">
+        <button class="btn btn-dark">알림 신청하기</button>
+        <a href="#lineup" class="btn btn-outline">전체 라인업 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 nfyg.co · 故 넷플연가 — Seoul Farewell Festival
+  </footer>
+
+  <!-- STICKY BAR -->
+  <div class="sticky-bar">
+    <div class="info">
+      <strong>故 넷플연가</strong> · 동행 클럽 40 + 동행 50<br>
+      <span class="date">2026.06.20 (FRI) – 06.21 (SAT)</span>
+    </div>
+    <a href="#lineup" class="btn btn-dark">신청하기</a>
+  </div>
+
+  <script>
+    // ---------- DATA ----------
+    const clubData = [
+      { topic: '에세이로 나를 쓰는 90분 (시즌 4)', creator: '김지원', role: '에세이 작가 & 글쓰기 코치', initial: '김', date: '6월 20일', dow: '금요일', area: '신당', left: 3, bg: 'club-bg-1' },
+      { topic: '첫인상의 심리학 — 처음 만나는 사람과 친해지는 법 (시즌 6)', creator: '박서연', role: '심리상담사', initial: '박', date: '6월 20일', dow: '금요일', area: '홍대', left: 5, bg: 'club-bg-2' },
+      { topic: '와인 한 잔과 영화 한 편 (시즌 2)', creator: '이태호', role: '소믈리에 & 영화평론가', initial: '이', date: '6월 20일', dow: '금요일', area: '을지로', left: 1, bg: 'club-bg-3' },
+      { topic: '혼자 사는 30대의 살림 노하우 (시즌 3)', creator: '정민아', role: '인테리어 디렉터', initial: '정', date: '6월 20일', dow: '금요일', area: '서대문', left: 4, bg: 'club-bg-4' },
+      { topic: '서울의 작은 책방, 큐레이션 한 바퀴 (시즌 5)', creator: '강현우', role: '책방지기 & 독립큐레이터', initial: '강', date: '6월 21일', dow: '토요일', area: '을지로', left: 7, bg: 'club-bg-5' },
+      { topic: 'AI 시대에 다시 쓰는 글쓰기 (시즌 2)', creator: '윤서영', role: 'AI 카피라이터', initial: '윤', date: '6월 21일', dow: '토요일', area: '을지로', left: 1, bg: 'club-bg-6' },
+      { topic: '도시인의 명상 입문 90분', creator: '한지민', role: '명상지도자', initial: '한', date: '6월 20일', dow: '금요일', area: '홍대', left: 6, bg: 'club-bg-1' },
+      { topic: '브랜드 만들기의 첫걸음 (시즌 4)', creator: '오준영', role: '브랜드 디렉터', initial: '오', date: '6월 21일', dow: '토요일', area: '서대문', left: 8, bg: 'club-bg-3' },
+      { topic: '사진으로 기록하는 일상', creator: '최유진', role: '다큐멘터리 사진작가', initial: '최', date: '6월 21일', dow: '토요일', area: '신당', left: 3, bg: 'club-bg-2' },
+      { topic: '30대 커리어 전환 워크숍 (시즌 7)', creator: '임도현', role: '커리어 코치', initial: '임', date: '6월 20일', dow: '금요일', area: '강남', left: 4, bg: 'club-bg-4' },
+      { topic: '독립출판물 만들기', creator: '류미경', role: '독립 출판 편집자', initial: '류', date: '6월 21일', dow: '토요일', area: '서대문', left: 5, bg: 'club-bg-5' },
+      { topic: '러닝과 회복의 과학', creator: '서지훈', role: '스포츠 의학 전문가', initial: '서', date: '6월 20일', dow: '금요일', area: '을지로', left: 9, bg: 'club-bg-6' },
+    ];
+
+    const walkData = [
+      { topic: '촉촉 쫀득 인생족발', icon: '🍖', proposer: '오이시', initial: '오', date: '6/20', dow: '금', area: '선릉', time: '저녁 7시', scene: 'walk-scene-1', left: 2 },
+      { topic: '저녁 식사와 뮤지컬', icon: '🎭', proposer: '민민', initial: '민', date: '6/21', dow: '토', area: '이태원', time: '저녁 8시', scene: 'walk-scene-4', left: 1 },
+      { topic: '을지로 골목 산책', icon: '🚶', proposer: '김도윤', initial: '김', date: '6/20', dow: '금', area: '을지로', time: '오후 1시', scene: 'walk-scene-2', left: 3 },
+      { topic: '한강 자전거 라이딩', icon: '🚲', proposer: '정수민', initial: '정', date: '6/21', dow: '토', area: '망원', time: '오전 11시', scene: 'walk-scene-3', left: 4 },
+      { topic: '북촌 한옥 카페 투어', icon: '☕', proposer: '강민주', initial: '강', date: '6/20', dow: '금', area: '북촌', time: '저녁 6시', scene: 'walk-scene-5', left: 1 },
+      { topic: '영화 같이 보기 — 〈너의 이름은〉', icon: '🎬', proposer: '신지원', initial: '신', date: '6/21', dow: '토', area: '광화문', time: '오후 2시', scene: 'walk-scene-6', left: 5 },
+      { topic: '망원시장 먹방', icon: '🍱', proposer: '오현지', initial: '오', date: '6/20', dow: '금', area: '망원', time: '점심 1시', scene: 'walk-scene-1', left: 3 },
+      { topic: '종로 서점 투어', icon: '📚', proposer: '한태경', initial: '한', date: '6/21', dow: '토', area: '종로', time: '오후 3시', scene: 'walk-scene-2', left: 2 },
+      { topic: '연남 동네 산책 — 노래 들으며', icon: '🌳', proposer: '류현우', initial: '류', date: '6/20', dow: '금', area: '연남동', time: '오전 11시', scene: 'walk-scene-3', left: 4 },
+      { topic: '서촌 천천히, 골목 한 바퀴', icon: '🍂', proposer: '안소영', initial: '안', date: '6/21', dow: '토', area: '서촌', time: '오전 10시', scene: 'walk-scene-4', left: 1 },
+      { topic: '이태원 글로벌 푸드 투어', icon: '🌮', proposer: '조민재', initial: '조', date: '6/20', dow: '금', area: '이태원', time: '저녁 6시', scene: 'walk-scene-5', left: 3 },
+      { topic: '한강 노을 보기 + 치맥', icon: '🌅', proposer: '노유진', initial: '노', date: '6/21', dow: '토', area: '합정', time: '저녁 7시', scene: 'walk-scene-6', left: 5 },
+    ];
+
+    const INITIAL_VISIBLE = 6;
+
+    // ---------- RENDER ----------
+    // Inline laurel SVG (decorative wreath, half — mirror via CSS for right)
+    const LAUREL_SVG = `<svg class="laurel" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M11 1 C 7 4, 5 8, 5 13" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+      <path d="M9 3 Q 11 4 11.5 5.5" stroke="currentColor" stroke-width="1" stroke-linecap="round" fill="none"/>
+      <path d="M7.5 6 Q 9.5 7 10 8.5" stroke="currentColor" stroke-width="1" stroke-linecap="round" fill="none"/>
+      <path d="M6 9 Q 8 10 8.5 11.5" stroke="currentColor" stroke-width="1" stroke-linecap="round" fill="none"/>
+      <path d="M5 12 Q 7 13 7.5 14.5" stroke="currentColor" stroke-width="1" stroke-linecap="round" fill="none"/>
+    </svg>`;
+
+    function renderClubCard(d) {
+      return `
+        <article class="club-card">
+          ${d.left <= 2 ? `<span class="urgency-badge">${d.left}자리 남음</span>` : ''}
+          <button class="heart-icon" aria-label="찜">♡</button>
+          <div class="club-thumb ${d.bg}">
+            <span class="with-mark">with</span>
+            <div class="creator-avatar">${d.initial}</div>
+          </div>
+          <div class="creator-banner">
+            <span class="banner-avatar-mark">${d.initial}</span>
+            <div class="banner-content">
+              <span class="banner-name">${d.creator}</span>
+              <span class="banner-role">${d.role}</span>
+            </div>
+          </div>
+          <div class="club-body">
+            <div class="card-title">${d.topic}</div>
+            <div class="club-footer">
+              <div class="host-row">
+                <span class="host-mark">●</span>
+                <span>앵콜 모임장</span>
+              </div>
+              <div class="date-line">${d.date} · ${d.dow} · ${d.area}</div>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderWalkCard(d) {
+      return `
+        <article class="walk-card">
+          <div class="walk-thumb ${d.scene}">
+            <span class="date-badge">${d.date}<span class="dow">${d.dow}</span></span>
+            <span>${d.icon}</span>
+            ${d.left <= 2 ? `<span class="urgency-walk">⏰ ${d.left}자리 남음</span>` : ''}
+          </div>
+          <div class="walk-body">
+            <div class="proposer-chip">
+              ${LAUREL_SVG}
+              <span class="pavatar">${d.initial}</span>
+              <span class="pname">${d.proposer}님의 제안</span>
+              ${LAUREL_SVG.replace('class="laurel"', 'class="laurel right"')}
+            </div>
+            <div class="card-title">⚡ ${d.topic}</div>
+            <div class="meta-bottom">${d.area} · ${d.time}</div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderGrid(targetId, data, renderFn) {
+      const grid = document.getElementById(targetId);
+      grid.innerHTML = data.map((d, i) => {
+        const html = renderFn(d);
+        return html.replace('<article class="', `<article data-idx="${i}" class="${i >= INITIAL_VISIBLE ? 'hidden ' : ''}`);
+      }).join('');
+    }
+
+    renderGrid('club-grid', clubData, renderClubCard);
+    renderGrid('walk-grid', walkData, renderWalkCard);
+
+    // ---------- LOAD MORE ----------
+    document.querySelectorAll('.load-more').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.target;
+        const total = parseInt(btn.dataset.total, 10);
+        const gridId = target === 'club' ? 'club-grid' : 'walk-grid';
+        const dataLen = target === 'club' ? clubData.length : walkData.length;
+
+        const hidden = document.querySelectorAll(`#${gridId} > article.hidden`);
+        hidden.forEach(card => card.classList.remove('hidden'));
+
+        // Update remaining count after reveal: shown = dataLen, total = 40 or 50
+        const remaining = total - dataLen;
+        if (remaining > 0) {
+          btn.querySelector('.remaining').textContent = `(${remaining}개 더 — 라인업 추가 중)`;
+          btn.disabled = true;
+          btn.style.opacity = '0.5';
+          btn.style.cursor = 'default';
+        } else {
+          btn.style.display = 'none';
+        }
+      });
+    });
+
+    // ---------- FILTER (visual only for mockup) ----------
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
