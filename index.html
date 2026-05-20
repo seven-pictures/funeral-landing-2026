@@ -206,14 +206,14 @@
       background: #0E0E0E;
       border-color: rgba(255,255,255,0.08);
     }
-    .day-card-party .day-label,
-    .day-card-party .day-title,
-    .day-card-party .day-keywords,
-    .day-card-party .day-flow { color: #fff; }
-    .day-card-party .day-label { color: rgba(255,255,255,0.5); }
-    .day-card-party .day-keywords { color: rgba(255,255,255,0.55); }
-    .day-card-party .day-flow { color: rgba(255,255,255,0.85); }
-    .day-card-party:hover { border-color: rgba(255,255,255,0.25); }
+    .day-card.day-card-party .day-label,
+    .day-card.day-card-party .day-title,
+    .day-card.day-card-party .day-keywords,
+    .day-card.day-card-party .day-flow { color: #fff; }
+    .day-card.day-card-party .day-label { color: rgba(255,255,255,0.5); }
+    .day-card.day-card-party .day-keywords { color: rgba(255,255,255,0.55); }
+    .day-card.day-card-party .day-flow { color: rgba(255,255,255,0.9); }
+    .day-card.day-card-party:hover { border-color: rgba(255,255,255,0.25); }
 
     /* DAY GRID */
     .day-grid {
@@ -653,7 +653,7 @@
     <div class="eyebrow">FAREWELL FESTIVAL</div>
     <p class="preamble">5년의 기억과 인연을 품은<br/>커뮤니티 브랜드의 마지막 축제에 초대합니다</p>
     <h1>故 넷플연가</h1>
-    <div class="date">2026. 06. 20 — 06. 21</div>
+    <div class="date">2026. 06. 27 — 06. 28</div>
     <div class="subtitle">마지막 만남과 새로운 시작의 48시간</div>
     <div class="meta">서울 전역에서 펼쳐지는 100개의 동행,<br/>그리고 모두가 함께 완성하는 밤의 장례식</div>
     <div class="cta-row">
@@ -782,13 +782,13 @@
       <div class="section-number">04</div>
       <div class="lineup-header">
         <h2>낮 — 동행 축제</h2>
-        <div class="count"><strong>동행 클럽 40</strong> · <strong>동행 50</strong> · 매일 업데이트됩니다</div>
+        <div class="count"><strong>동행 클럽 40</strong> · <strong>동행 50</strong> · 계속 업데이트됩니다</div>
       </div>
 
       <div class="filter-chips">
         <button class="chip active">전체</button>
-        <button class="chip">Day 1 · 6/20</button>
-        <button class="chip">Day 2 · 6/21</button>
+        <button class="chip">Day 1 · 6/27</button>
+        <button class="chip">Day 2 · 6/28</button>
         <button class="chip">10:30</button>
         <button class="chip">13:00</button>
         <button class="chip">15:30</button>
@@ -846,7 +846,7 @@
 
       <div class="day-grid">
         <div class="day-card day-card-ceremony">
-          <div class="day-label">DAY 1 · 6월 20일 (금) · 신당 사생활</div>
+          <div class="day-label">DAY 1 · 6월 27일 (토) · 신당 사생활</div>
           <div class="day-title">🕯 故 넷플연가의 장례식</div>
           <div class="day-keywords">정리 · 감정 · 마지막</div>
           <div class="day-flow">
@@ -857,7 +857,7 @@
           </div>
         </div>
         <div class="day-card day-card-party">
-          <div class="day-label">DAY 2 · 6월 21일 (토) · 스푼하우스 을지로</div>
+          <div class="day-label">DAY 2 · 6월 28일 (일) · 스푼하우스 을지로</div>
           <div class="day-title">🎉 동행의 첫 파티</div>
           <div class="day-keywords">시작 · 에너지 · 확장</div>
           <div class="day-flow">
@@ -946,33 +946,33 @@
   <script>
     // ---------- DATA ----------
     const clubData = [
-      { topic: '에세이로 나를 쓰는 90분 (시즌 4)', creator: '김지원', role: '에세이 작가 & 글쓰기 코치', initial: '김', date: '6월 20일', dow: '금요일', area: '신당', left: 3, bg: 'club-bg-1' },
-      { topic: '첫인상의 심리학 — 처음 만나는 사람과 친해지는 법 (시즌 6)', creator: '박서연', role: '심리상담사', initial: '박', date: '6월 20일', dow: '금요일', area: '홍대', left: 5, bg: 'club-bg-2' },
-      { topic: '와인 한 잔과 영화 한 편 (시즌 2)', creator: '이태호', role: '소믈리에 & 영화평론가', initial: '이', date: '6월 20일', dow: '금요일', area: '을지로', left: 1, bg: 'club-bg-3' },
-      { topic: '혼자 사는 30대의 살림 노하우 (시즌 3)', creator: '정민아', role: '인테리어 디렉터', initial: '정', date: '6월 20일', dow: '금요일', area: '서대문', left: 4, bg: 'club-bg-4' },
-      { topic: '서울의 작은 책방, 큐레이션 한 바퀴 (시즌 5)', creator: '강현우', role: '책방지기 & 독립큐레이터', initial: '강', date: '6월 21일', dow: '토요일', area: '을지로', left: 7, bg: 'club-bg-5' },
-      { topic: 'AI 시대에 다시 쓰는 글쓰기 (시즌 2)', creator: '윤서영', role: 'AI 카피라이터', initial: '윤', date: '6월 21일', dow: '토요일', area: '을지로', left: 1, bg: 'club-bg-6' },
-      { topic: '도시인의 명상 입문 90분', creator: '한지민', role: '명상지도자', initial: '한', date: '6월 20일', dow: '금요일', area: '홍대', left: 6, bg: 'club-bg-1' },
-      { topic: '브랜드 만들기의 첫걸음 (시즌 4)', creator: '오준영', role: '브랜드 디렉터', initial: '오', date: '6월 21일', dow: '토요일', area: '서대문', left: 8, bg: 'club-bg-3' },
-      { topic: '사진으로 기록하는 일상', creator: '최유진', role: '다큐멘터리 사진작가', initial: '최', date: '6월 21일', dow: '토요일', area: '신당', left: 3, bg: 'club-bg-2' },
-      { topic: '30대 커리어 전환 워크숍 (시즌 7)', creator: '임도현', role: '커리어 코치', initial: '임', date: '6월 20일', dow: '금요일', area: '강남', left: 4, bg: 'club-bg-4' },
-      { topic: '독립출판물 만들기', creator: '류미경', role: '독립 출판 편집자', initial: '류', date: '6월 21일', dow: '토요일', area: '서대문', left: 5, bg: 'club-bg-5' },
-      { topic: '러닝과 회복의 과학', creator: '서지훈', role: '스포츠 의학 전문가', initial: '서', date: '6월 20일', dow: '금요일', area: '을지로', left: 9, bg: 'club-bg-6' },
+      { topic: '에세이로 나를 쓰는 90분 (시즌 4)', creator: '김지원', role: '에세이 작가 & 글쓰기 코치', initial: '김', date: '6월 27일', dow: '토요일', area: '신당', left: 3, bg: 'club-bg-1' },
+      { topic: '첫인상의 심리학 — 처음 만나는 사람과 친해지는 법 (시즌 6)', creator: '박서연', role: '심리상담사', initial: '박', date: '6월 27일', dow: '토요일', area: '홍대', left: 5, bg: 'club-bg-2' },
+      { topic: '와인 한 잔과 영화 한 편 (시즌 2)', creator: '이태호', role: '소믈리에 & 영화평론가', initial: '이', date: '6월 27일', dow: '토요일', area: '을지로', left: 1, bg: 'club-bg-3' },
+      { topic: '혼자 사는 30대의 살림 노하우 (시즌 3)', creator: '정민아', role: '인테리어 디렉터', initial: '정', date: '6월 27일', dow: '토요일', area: '서대문', left: 4, bg: 'club-bg-4' },
+      { topic: '서울의 작은 책방, 큐레이션 한 바퀴 (시즌 5)', creator: '강현우', role: '책방지기 & 독립큐레이터', initial: '강', date: '6월 28일', dow: '일요일', area: '을지로', left: 7, bg: 'club-bg-5' },
+      { topic: 'AI 시대에 다시 쓰는 글쓰기 (시즌 2)', creator: '윤서영', role: 'AI 카피라이터', initial: '윤', date: '6월 28일', dow: '일요일', area: '을지로', left: 1, bg: 'club-bg-6' },
+      { topic: '도시인의 명상 입문 90분', creator: '한지민', role: '명상지도자', initial: '한', date: '6월 27일', dow: '토요일', area: '홍대', left: 6, bg: 'club-bg-1' },
+      { topic: '브랜드 만들기의 첫걸음 (시즌 4)', creator: '오준영', role: '브랜드 디렉터', initial: '오', date: '6월 28일', dow: '일요일', area: '서대문', left: 8, bg: 'club-bg-3' },
+      { topic: '사진으로 기록하는 일상', creator: '최유진', role: '다큐멘터리 사진작가', initial: '최', date: '6월 28일', dow: '일요일', area: '신당', left: 3, bg: 'club-bg-2' },
+      { topic: '30대 커리어 전환 워크숍 (시즌 7)', creator: '임도현', role: '커리어 코치', initial: '임', date: '6월 27일', dow: '토요일', area: '강남', left: 4, bg: 'club-bg-4' },
+      { topic: '독립출판물 만들기', creator: '류미경', role: '독립 출판 편집자', initial: '류', date: '6월 28일', dow: '일요일', area: '서대문', left: 5, bg: 'club-bg-5' },
+      { topic: '러닝과 회복의 과학', creator: '서지훈', role: '스포츠 의학 전문가', initial: '서', date: '6월 27일', dow: '토요일', area: '을지로', left: 9, bg: 'club-bg-6' },
     ];
 
     const walkData = [
-      { topic: '촉촉 쫀득 인생족발', icon: '🍖', proposer: '오이시', initial: '오', date: '6/20', dow: '금', area: '선릉', time: '저녁 7시', scene: 'walk-scene-1', left: 2 },
-      { topic: '저녁 식사와 뮤지컬', icon: '🎭', proposer: '민민', initial: '민', date: '6/21', dow: '토', area: '이태원', time: '저녁 8시', scene: 'walk-scene-4', left: 1 },
-      { topic: '을지로 골목 산책', icon: '🚶', proposer: '김도윤', initial: '김', date: '6/20', dow: '금', area: '을지로', time: '오후 1시', scene: 'walk-scene-2', left: 3 },
-      { topic: '한강 자전거 라이딩', icon: '🚲', proposer: '정수민', initial: '정', date: '6/21', dow: '토', area: '망원', time: '오전 11시', scene: 'walk-scene-3', left: 4 },
-      { topic: '북촌 한옥 카페 투어', icon: '☕', proposer: '강민주', initial: '강', date: '6/20', dow: '금', area: '북촌', time: '저녁 6시', scene: 'walk-scene-5', left: 1 },
-      { topic: '영화 같이 보기 — 〈너의 이름은〉', icon: '🎬', proposer: '신지원', initial: '신', date: '6/21', dow: '토', area: '광화문', time: '오후 2시', scene: 'walk-scene-6', left: 5 },
-      { topic: '망원시장 먹방', icon: '🍱', proposer: '오현지', initial: '오', date: '6/20', dow: '금', area: '망원', time: '점심 1시', scene: 'walk-scene-1', left: 3 },
-      { topic: '종로 서점 투어', icon: '📚', proposer: '한태경', initial: '한', date: '6/21', dow: '토', area: '종로', time: '오후 3시', scene: 'walk-scene-2', left: 2 },
-      { topic: '연남 동네 산책 — 노래 들으며', icon: '🌳', proposer: '류현우', initial: '류', date: '6/20', dow: '금', area: '연남동', time: '오전 11시', scene: 'walk-scene-3', left: 4 },
-      { topic: '서촌 천천히, 골목 한 바퀴', icon: '🍂', proposer: '안소영', initial: '안', date: '6/21', dow: '토', area: '서촌', time: '오전 10시', scene: 'walk-scene-4', left: 1 },
-      { topic: '이태원 글로벌 푸드 투어', icon: '🌮', proposer: '조민재', initial: '조', date: '6/20', dow: '금', area: '이태원', time: '저녁 6시', scene: 'walk-scene-5', left: 3 },
-      { topic: '한강 노을 보기 + 치맥', icon: '🌅', proposer: '노유진', initial: '노', date: '6/21', dow: '토', area: '합정', time: '저녁 7시', scene: 'walk-scene-6', left: 5 },
+      { topic: '촉촉 쫀득 인생족발', icon: '🍖', proposer: '오이시', initial: '오', date: '6/27', dow: '토', area: '선릉', time: '저녁 7시', scene: 'walk-scene-1', left: 2 },
+      { topic: '저녁 식사와 뮤지컬', icon: '🎭', proposer: '민민', initial: '민', date: '6/28', dow: '일', area: '이태원', time: '저녁 8시', scene: 'walk-scene-4', left: 1 },
+      { topic: '을지로 골목 산책', icon: '🚶', proposer: '김도윤', initial: '김', date: '6/27', dow: '토', area: '을지로', time: '오후 1시', scene: 'walk-scene-2', left: 3 },
+      { topic: '한강 자전거 라이딩', icon: '🚲', proposer: '정수민', initial: '정', date: '6/28', dow: '일', area: '망원', time: '오전 11시', scene: 'walk-scene-3', left: 4 },
+      { topic: '북촌 한옥 카페 투어', icon: '☕', proposer: '강민주', initial: '강', date: '6/27', dow: '토', area: '북촌', time: '저녁 6시', scene: 'walk-scene-5', left: 1 },
+      { topic: '영화 같이 보기 — 〈너의 이름은〉', icon: '🎬', proposer: '신지원', initial: '신', date: '6/28', dow: '일', area: '광화문', time: '오후 2시', scene: 'walk-scene-6', left: 5 },
+      { topic: '망원시장 먹방', icon: '🍱', proposer: '오현지', initial: '오', date: '6/27', dow: '토', area: '망원', time: '점심 1시', scene: 'walk-scene-1', left: 3 },
+      { topic: '종로 서점 투어', icon: '📚', proposer: '한태경', initial: '한', date: '6/28', dow: '일', area: '종로', time: '오후 3시', scene: 'walk-scene-2', left: 2 },
+      { topic: '연남 동네 산책 — 노래 들으며', icon: '🌳', proposer: '류현우', initial: '류', date: '6/27', dow: '토', area: '연남동', time: '오전 11시', scene: 'walk-scene-3', left: 4 },
+      { topic: '서촌 천천히, 골목 한 바퀴', icon: '🍂', proposer: '안소영', initial: '안', date: '6/28', dow: '일', area: '서촌', time: '오전 10시', scene: 'walk-scene-4', left: 1 },
+      { topic: '이태원 글로벌 푸드 투어', icon: '🌮', proposer: '조민재', initial: '조', date: '6/27', dow: '토', area: '이태원', time: '저녁 6시', scene: 'walk-scene-5', left: 3 },
+      { topic: '한강 노을 보기 + 치맥', icon: '🌅', proposer: '노유진', initial: '노', date: '6/28', dow: '일', area: '합정', time: '저녁 7시', scene: 'walk-scene-6', left: 5 },
     ];
 
     const INITIAL_VISIBLE = 6;
