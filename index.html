@@ -916,6 +916,23 @@
       .sticky-bar .info .date { font-size: 10px; }
       .sticky-bar .btn { padding: 10px 16px; font-size: 12px; }
     }
+    /* Desktop: constrain to mobile width, center on page */
+    @media (min-width: 561px) {
+      html { background: #ECECEC; }
+      body {
+        max-width: 520px;
+        margin: 0 auto;
+        background: #fff;
+        box-shadow: 0 0 40px rgba(0,0,0,0.06);
+      }
+      .sticky-bar {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 520px;
+      }
+    }
   </style>
 </head>
 <body>
