@@ -584,6 +584,121 @@
 
     .hidden { display: none !important; }
 
+    /* MYSTERY CAMPAIGN */
+    .mystery-section {
+      background: linear-gradient(180deg, #0E0E0E 0%, #1a1a1a 100%);
+      color: #fff;
+      padding: 64px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .mystery-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 22% 30%, rgba(245,232,200,0.10) 0%, transparent 35%),
+        radial-gradient(circle at 78% 70%, rgba(245,232,200,0.08) 0%, transparent 35%),
+        radial-gradient(circle at 50% 50%, rgba(245,232,200,0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .mystery-section > * { position: relative; z-index: 1; }
+    .mystery-eyebrow {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.35em;
+      color: #F5E8C8;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+    .mystery-title {
+      font-size: 26px; font-weight: 700;
+      line-height: 1.4; letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      max-width: 520px;
+      margin-left: auto; margin-right: auto;
+    }
+    .mystery-desc {
+      font-size: 14px; line-height: 1.85;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 36px;
+      max-width: 520px;
+      margin-left: auto; margin-right: auto;
+    }
+    .hint-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 10px; margin: 0 auto 28px;
+      max-width: 720px;
+    }
+    .hint-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(245,232,200,0.14);
+      border-radius: 12px;
+      padding: 18px 14px;
+      text-align: left;
+    }
+    .hint-num {
+      font-size: 10px; font-weight: 700;
+      color: #F5E8C8;
+      letter-spacing: 0.12em;
+      display: block; margin-bottom: 6px;
+    }
+    .hint-text {
+      font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.55;
+    }
+    .mystery-form {
+      display: flex; gap: 6px;
+      max-width: 420px; margin: 0 auto 20px;
+    }
+    .mystery-form input {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(245,232,200,0.22);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+    .mystery-form input::placeholder { color: rgba(255,255,255,0.4); }
+    .mystery-form input:focus {
+      outline: none;
+      border-color: #F5E8C8;
+      background: rgba(255,255,255,0.1);
+    }
+    .mystery-form button {
+      background: #F5E8C8;
+      color: #1a1a1a;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 22px;
+      font-family: inherit;
+      font-size: 14px; font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+    .mystery-form button:hover {
+      background: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(245,232,200,0.25);
+    }
+    .mystery-reward {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.01em;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .mystery-reward strong { color: #F5E8C8; font-weight: 700; }
+    @media (max-width: 560px) {
+      .hint-grid { grid-template-columns: 1fr; gap: 8px; }
+      .mystery-form { flex-direction: column; }
+      .mystery-title { font-size: 22px; }
+    }
+
     /* NIGHT */
     .night-section { padding: 48px 0; border-bottom: 1px solid var(--border-light); }
     .night-card {
@@ -884,6 +999,40 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- MYSTERY CAMPAIGN -->
+  <section class="mystery-section">
+    <div class="mystery-eyebrow">✦ 마지막 미스터리 ✦</div>
+    <h2 class="mystery-title">넷플연가의<br/>다음 이름은 무엇일까요?</h2>
+    <p class="mystery-desc">
+      6월 28일 밤. 故 넷플연가의 장례식이 끝나는 순간,<br/>
+      5년을 이어온 이 이름의 다음 자리가 공개됩니다.
+    </p>
+
+    <div class="hint-grid">
+      <div class="hint-card">
+        <span class="hint-num">HINT 1</span>
+        <div class="hint-text">두 글자, 일상에서 자주 쓰는 한국어</div>
+      </div>
+      <div class="hint-card">
+        <span class="hint-num">HINT 2</span>
+        <div class="hint-text">'함께'와 '연결'을 떠올리게 합니다</div>
+      </div>
+      <div class="hint-card">
+        <span class="hint-num">HINT 3</span>
+        <div class="hint-text">이미 5년을 같이 걸어온 단어</div>
+      </div>
+    </div>
+
+    <form class="mystery-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='접수 완료 ✦';">
+      <input type="text" placeholder="새 이름을 추측해보세요" />
+      <button type="submit">맞히기 →</button>
+    </form>
+
+    <p class="mystery-reward">
+      🎁 가장 먼저 맞힌 <strong>7명</strong>에게 故 넷플연가 한정 굿즈를 드립니다
+    </p>
   </section>
 
   <!-- NIGHT -->
