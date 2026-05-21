@@ -248,6 +248,24 @@
     .part-card .name { font-size: 15px; font-weight: 700; margin-bottom: 3px; letter-spacing: -0.01em; }
     .part-card .desc { font-size: 12px; color: var(--text-tertiary); margin-bottom: 10px; }
     .part-card .config { font-size: 12px; color: var(--text-secondary); font-weight: 600; }
+    .part-card { position: relative; }
+    .part-card .badge {
+      position: absolute; top: 12px; right: 12px;
+      background: #F5E8C8; color: #1a1a1a;
+      padding: 3px 9px; border-radius: 100px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.02em;
+    }
+    .part-card-recommended {
+      background: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+    .part-card-recommended:hover {
+      background: #1a1a1a;
+      border-color: #F5E8C8;
+    }
+    .part-card-recommended .name { color: #fff; }
+    .part-card-recommended .desc { color: rgba(255,255,255,0.6); }
+    .part-card-recommended .config { color: #F5E8C8; }
 
     /* LINEUP */
     .lineup-section { padding: 48px 0; border-bottom: 1px solid var(--border-light); }
@@ -931,27 +949,28 @@
       <div class="part-grid">
         <div class="part-card">
           <span class="emoji">🍵</span>
-          <div class="name">라이트</div>
-          <div class="desc">가볍게 한 자리만</div>
-          <div class="config">동행 1개</div>
+          <div class="name">잠깐 들르기</div>
+          <div class="desc">한 자리만 가볍게</div>
+          <div class="config">동행 or 동행 클럽 1개</div>
         </div>
         <div class="part-card">
           <span class="emoji">☀️</span>
-          <div class="name">데이</div>
-          <div class="desc">낮의 서울 통째로</div>
-          <div class="config">동행 + 클럽 1개</div>
+          <div class="name">하루 통째</div>
+          <div class="desc">도시를 산책하는 하루</div>
+          <div class="config">낮 모임 2개</div>
         </div>
         <div class="part-card">
-          <span class="emoji">🌙</span>
-          <div class="name">밤</div>
-          <div class="desc">의식의 자리만</div>
-          <div class="config">장례식 1일</div>
+          <span class="emoji">🕯</span>
+          <div class="name">의식만</div>
+          <div class="desc">이름을 보내는 자리</div>
+          <div class="config">故 넷플연가 장례식</div>
         </div>
-        <div class="part-card">
+        <div class="part-card part-card-recommended">
+          <span class="badge">추천</span>
           <span class="emoji">🌗</span>
-          <div class="name">풀</div>
-          <div class="desc">이틀을 통째로</div>
-          <div class="config">낮 + 장례식</div>
+          <div class="name">이틀 통째</div>
+          <div class="desc">시작부터 끝까지 함께</div>
+          <div class="config">낮 2개 + 장례식</div>
         </div>
       </div>
     </div>
