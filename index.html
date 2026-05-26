@@ -900,13 +900,17 @@
     }
     .sticky-bar .btn {
       flex-shrink: 0;
-      padding: 11px 18px;
-      font-size: 13px;
-      gap: 4px;
+      padding: 13px 22px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      gap: 5px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.30);
     }
+    .sticky-bar .btn:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.40); }
     .sticky-bar .btn::after {
       content: '→';
-      font-size: 14px;
+      font-size: 15px;
       transition: transform 0.15s;
     }
     .sticky-bar .btn:hover::after { transform: translateX(2px); }
@@ -933,7 +937,7 @@
       .sticky-bar { padding: 10px 14px; }
       .sticky-bar .info strong { font-size: 13px; }
       .sticky-bar .info .date { font-size: 10px; }
-      .sticky-bar .btn { padding: 10px 16px; font-size: 12px; }
+      .sticky-bar .btn { padding: 12px 17px; font-size: 13px; }
     }
     /* Desktop: constrain to mobile width, center on page */
     @media (min-width: 561px) {
@@ -1252,7 +1256,7 @@
       <strong>故 넷플연가 장례식·축제</strong>
       <span class="date">2026. 06. 27 (토) – 06. 28 (일)</span>
     </div>
-    <a href="#lineup" class="btn btn-dark">신청하기</a>
+    <a href="#lineup" class="btn btn-dark">알림신청하기</a>
   </div>
 
   <script>
